@@ -118,3 +118,31 @@ proven and efficient technologies (C++14, Qt5, MPI).
 
 The full documentation is available at
 [bluebrain.github.io](http://bluebrain.github.io/Tide-1.5)
+
+## Funding & Acknowledgment
+
+The development of this software was supported by funding to the Blue Brain Project,
+a research center of the École polytechnique fédérale de Lausanne (EPFL), from the
+Swiss government’s ETH Board of the Swiss Federal Institutes of Technology.
+
+This project has received funding from the European Union's Horizon 2020 Framework
+Programme for Research and Innovation under the Specific Grant Agreement No. 720270
+(Human Brain Project SGA1).
+
+This project is based upon work supported by the King Abdullah University of Science
+and Technology (KAUST) Office of Sponsored Research (OSR) under Award No. OSR-2017-CRG6-3438.
+
+## License
+
+Copyright (c) 2013-2022 Blue Brain Project/EPFL,
+
+Copyright (c) 2013-2015 King Abdullah University of Science and Technology,
+                        Saudi Arabia
+
+Copyright (c) 2011-2012 The University of Texas at Austin.
+
+All rights reserved.
+
+The views and conclusions contained in the software and documentation are those of
+the authors and should not be interpreted as representing official policies, either
+expressed or implied, of École polytechnique fédérale de Lausanne de Lausanne.

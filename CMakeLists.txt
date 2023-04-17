@@ -76,7 +76,8 @@ common_find_package(X11) # for swap sync unit tests
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOMCC ON)
 
-common_find_package(FFMPEG)
+common_find_package(FFMPEG 3.4)
+
 if(FFMPEG_FOUND)
   option(TIDE_ENABLE_MOVIE_SUPPORT "Enable FFMPEG movie support" ON)
   message("Enable FFMPEG movie support")
