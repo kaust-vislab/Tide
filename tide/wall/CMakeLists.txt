@@ -158,6 +158,9 @@ list(APPEND TIDEWALL_SOURCES
   resources/wall.qrc
 )
 
+QT5_ADD_RESOURCES(RESOURCES_WALL "resources/wall.qrc")
+list(APPEND TIDEWALL_SOURCES ${RESOURCES_WALL})
+
 set(TIDEWALL_INCLUDE_NAME tide/wall)
 common_library(TideWall)
 

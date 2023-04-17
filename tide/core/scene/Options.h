@@ -168,13 +168,13 @@ private:
     bool _autoFocusPixelStreams = true;
     bool _showClock = false;
     bool _showContentTiles = false;
-    bool _showControlArea = true;
+    bool _showControlArea = false;
     bool _showFilePaths = false;
     bool _showStreamingStatistics = false;
     bool _showTestPattern = false;
-    bool _showTouchPoints = true;
+    bool _showTouchPoints = false;
     bool _showWindowBorders = true;
-    bool _showWindowTitles = true;
+    bool _showWindowTitles = false;
     bool _showZoomContext = true;
     bool _playOnMaximize = true;
 };

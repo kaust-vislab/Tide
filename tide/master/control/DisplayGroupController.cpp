@@ -42,7 +42,7 @@
 #include "WindowController.h"
 #include "layout/LayoutEngine.h"
 #include "scene/DisplayGroup.h"
-#include "scene/MovieContent.h"
+//#include "scene/MovieContent.h"
 #include "scene/Options.h"
 #include "scene/Window.h"
 
@@ -50,9 +50,8 @@
 
 namespace
 {
-static auto _exceeds = [](const auto& size, const auto& other) {
-    return size.width() > other.width() && size.height() > other.height();
-};
+static auto _exceeds = [](const auto& size, const auto& other)
+{ return size.width() > other.width() && size.height() > other.height(); };
 }
 
 DisplayGroupController::DisplayGroupController(DisplayGroup& group)
@@ -322,12 +321,12 @@ void DisplayGroupController::_showFullscreen(WindowPtr window,
     window->getContent().setCaptureInteraction(false);
     _group.setFullscreenWindow(window);
 
-    if (window->getContent().getType() == ContentType::movie &&
-        _options->getPlayOnMaximize())
-    {
-        auto& content = static_cast<MovieContent&>(window->getContent());
-        content.play();
-    }
+    /*    if (window->getContent().getType() == ContentType::movie &&
+            _options->getPlayOnMaximize())
+        {
+            auto& content = static_cast<MovieContent&>(window->getContent());
+            content.play();
+        }*/
 }
 
 qreal DisplayGroupController::_estimateAspectRatio() const

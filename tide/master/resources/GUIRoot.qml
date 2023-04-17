@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "qrc:/qml/core/style.js" as Style
+import "qrc:///qml/core/style.js" as Style
 
 Item {
     Rectangle {

@@ -56,7 +56,8 @@
 #define HAS_STEREO_API (LIBAVFORMAT_VERSION_INT >= AV_VERSION_INT(55, 35, 100))
 
 #if HAS_STEREO_API
-extern "C" {
+extern "C"
+{
 #include <libavutil/stereo3d.h>
 }
 #endif
@@ -134,10 +135,36 @@ bool FFMPEGVideoStream::_decodeToAvFrame(AVPacket& packet)
     errCode = avcodec_receive_frame(_videoCodecContext, &_frame->getAVFrame());
     if (errCode < 0)
     {
-        print_log(LOG_ERROR, LOG_AV,
-                  "avcodec_receive_frame returned error code '%i' : "
-                  "'%s' in '%s'",
-                  errCode, _getAvError(errCode).c_str(), _getFilename());
+        if (errCode == AVERROR(EAGAIN))
+        {
+            print_log(LOG_ERROR, LOG_AV,
+                      "output is not available in the current state - user "
+                      "must try to send input '%i' : "
+                      "'%s' in '%s'",
+                      errCode, _getAvError(errCode).c_str(), _getFilename());
+        }
+        else if (errCode == AVERROR_EOF)
+        {
+            print_log(LOG_ERROR, LOG_AV,
+                      "the encoder has been fully flushed, and there will be "
+                      "no more output packets '%i' : "
+                      "'%s' in '%s'",
+                      errCode, _getAvError(errCode).c_str(), _getFilename());
+        }
+        else if (errCode == AVERROR(EINVAL))
+        {
+            print_log(LOG_ERROR, LOG_AV,
+                      "codec is not opened '%i' : "
+                      "'%s' in '%s'",
+                      errCode, _getAvError(errCode).c_str(), _getFilename());
+        }
+        else
+        {
+            print_log(LOG_ERROR, LOG_AV,
+                      "avcodec_receive_frame returned error code '%i' : "
+                      "'%s' in '%s'",
+                      errCode, _getAvError(errCode).c_str(), _getFilename());
+        }
         return false;
     }
 #else

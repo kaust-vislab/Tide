@@ -276,6 +276,9 @@ list(APPEND TIDECORE_SOURCES
   thumbnail/ThumbnailProvider.cpp
 )
 
+QT5_ADD_RESOURCES(RESOURCES_CORE "resources/core.qrc")
+list(APPEND TIDECORE_SOURCES ${RESOURCES_CORE})
+
 if(TIDE_ENABLE_WEBBROWSER_SUPPORT)
   list(APPEND TIDECORE_PUBLIC_HEADERS
     scene/WebbrowserContent.h

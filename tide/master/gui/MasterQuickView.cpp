@@ -47,9 +47,9 @@
 
 namespace
 {
-const QUrl QML_ROOT_COMPONENT("qrc:/qml/master/GUIRoot.qml");
+const QUrl QML_ROOT_COMPONENT("qrc:///qml/master/GUIRoot.qml");
 const QString SURFACE_OBJECT_NAME("Surface");
-}
+} // namespace
 
 MasterQuickView::MasterQuickView(const SurfaceConfig& surfaceConfig)
 {
@@ -70,9 +70,7 @@ MasterQuickView::MasterQuickView(const SurfaceConfig& surfaceConfig)
     _surfaceItem->setProperty("surfaceHeight", surfaceConfig.getTotalHeight());
 }
 
-MasterQuickView::~MasterQuickView()
-{
-}
+MasterQuickView::~MasterQuickView() {}
 
 QQuickItem& MasterQuickView::getSurfaceItem()
 {
