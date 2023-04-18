@@ -1,4 +1,4 @@
 # -*- mode: cmake -*-
 git_subproject(Deflect https://github.com/kaust-vislab/Deflect-DesktopStreamer.git master)
-git_subproject(Rockets https://github.com/kaust-vislab/Rockets.git 47868ca)
+git_subproject(Rockets https://github.com/kaust-vislab/Rockets.git master)
 git_subproject(VirtualKeyboard https://github.com/kaust-vislab/QtFreeVirtualKeyboard.git d026536)
