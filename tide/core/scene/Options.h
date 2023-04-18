@@ -165,7 +165,7 @@ private:
     }
 
     bool _alphaBlendingEnabled = false;
-    bool _autoFocusPixelStreams = true;
+    bool _autoFocusPixelStreams = false;
     bool _showClock = false;
     bool _showContentTiles = false;
     bool _showControlArea = false;
@@ -173,7 +173,7 @@ private:
     bool _showStreamingStatistics = false;
     bool _showTestPattern = false;
     bool _showTouchPoints = false;
-    bool _showWindowBorders = true;
+    bool _showWindowBorders = false;
     bool _showWindowTitles = false;
     bool _showZoomContext = true;
     bool _playOnMaximize = true;

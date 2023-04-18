@@ -79,7 +79,7 @@ Rectangle {
             Loader {
                 id: controlBar
                 width: parent.width
-                visible: options.showFilePaths
+                visible: options.showContentTiles
                 active: (typeof window.content.playing !== "undefined")
                         && !windowRect.isBackground
                 sourceComponent: MovieControls {

@@ -35,12 +35,9 @@ include(FindBoostConfig)
 
 include(Common)
 
-set(_deflect_min_version 1.0.2)
-set(_rockets_min_version 0.1)
-
 common_find_package(Boost 1.56 REQUIRED COMPONENTS program_options serialization
   unit_test_framework)
-common_find_package(Deflect ${_deflect_min_version} REQUIRED)
+common_find_package(Deflect REQUIRED)
 common_find_package(MPI REQUIRED)
 common_find_package(Qt5Concurrent REQUIRED)
 common_find_package(Qt5Core REQUIRED)
@@ -96,7 +93,7 @@ else()
   endif()
 endif()
 
-common_find_package(Rockets ${_rockets_min_version})
+common_find_package(Rockets)
 if(TARGET Rockets)
   option(TIDE_ENABLE_REST_INTERFACE "Enable REST interface using Rockets" ON)
   message("Enable REST interface using Rockets")
@@ -115,9 +112,8 @@ install(DIRECTORY examples DESTINATION share/Tide COMPONENT examples)
 
 # Packaging (including subprojects)
 set(TIDE_PACKAGE_DEB_DEPENDS ${TIDE_DEB_DEPENDS})
-add_deb_depends(Deflect PACKAGE_NAME desktopstreamer MIN_VERSION
-  ${_deflect_min_version} qtbase5-dev libturbojpeg)
-add_deb_depends(Rockets MIN_VERSION ${_rockets_min_version} libwebsockets-dev)
+add_deb_depends(Deflect PACKAGE_NAME desktopstreamer qtbase5-dev libturbojpeg)
+add_deb_depends(Rockets libwebsockets-dev)
 include(CommonCPack) # also includes CommonPackageConfig
 
 # Documentation
