@@ -103,28 +103,11 @@ bool FFMPEGVideoStream::_decodeToAvFrame(AVPacket& packet, FFMPEGFrame& frame)
     errCode = avcodec_receive_frame(_videoCodecContext, &frame.getAVFrame());
     if (errCode < 0)
     {
-        if (errCode == AVERROR(EAGAIN))
+        if (errCode == AVERROR(EAGAIN) || errCode == AVERROR(EINVAL) ||
+            errCode == AVERROR_EOF)
         {
-            print_log(LOG_ERROR, LOG_AV,
-                      "output is not available in the current state - user "
-                      "must try to send input '%i' : "
-                      "'%s' in '%s'",
-                      errCode, _getAvError(errCode).c_str(), _getFilename());
-        }
-        else if (errCode == AVERROR_EOF)
-        {
-            print_log(LOG_ERROR, LOG_AV,
-                      "the encoder has been fully flushed, and there will be "
-                      "no more output packets '%i' : "
-                      "'%s' in '%s'",
-                      errCode, _getAvError(errCode).c_str(), _getFilename());
-        }
-        else if (errCode == AVERROR(EINVAL))
-        {
-            print_log(LOG_ERROR, LOG_AV,
-                      "codec is not opened '%i' : "
-                      "'%s' in '%s'",
-                      errCode, _getAvError(errCode).c_str(), _getFilename());
+            // Ignore since we don't care and don't want useless errors printed
+            // to the terminal
         }
         else
         {
