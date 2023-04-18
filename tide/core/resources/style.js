@@ -3,8 +3,8 @@
 
 // Color palette
 var baseColor = "#F2F2F2" // grey
-var activeColor = "#FCEE21" // yellow
-var highlightColor = "cyan" // cyan
+var activeColor = "#00A6AA" // KAUST cyan //"#FCEE21" // yellow
+var highlightColor = "#F18F00" // KAUST orange // "cyan" // cyan
 var contrastColor = "black" // black
 
 // Z-order

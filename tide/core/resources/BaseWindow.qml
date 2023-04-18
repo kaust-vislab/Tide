@@ -79,7 +79,7 @@ Rectangle {
             Loader {
                 id: controlBar
                 width: parent.width
-                visible: status == Loader.Ready
+                visible: false
                 active: (typeof window.content.playing !== "undefined")
                         && !windowRect.isBackground
                 sourceComponent: MovieControls {
