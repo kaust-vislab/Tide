@@ -58,12 +58,14 @@ void WindowTouchController::onTouchStarted()
 
 void WindowTouchController::onTap()
 {
+    //    print_log(LOG_INFO, LOG_REST, "Tap on touch controller");
     if (_isWindowActive() && !_window.isPanel())
         _controller.toggleSelected();
 }
 
 void WindowTouchController::onTapAndHold()
 {
+    //    print_log(LOG_INFO, LOG_REST, "Tap and hold touch controller");
     if (!_window.isFullscreen() && !_window.isFocused())
     {
         _window.getContent().setCaptureInteraction(
@@ -74,11 +76,15 @@ void WindowTouchController::onTapAndHold()
         _controller.toggleSelected(); // force toggle
 }
 
+// Edited so that it exits full screen mode on a double tap.
+// Doing the max full screen function seemed useless, and exiting
+// full screen was difficult without brining up the control screen
 void WindowTouchController::onDoubleTap(const uint numPoints)
 {
-    if (_window.isFullscreen())
-        _controller.toogleFullscreenMaxSize();
-    else
+    //    print_log(LOG_INFO, LOG_REST, "Double tap on touch controller");
+    //    if (_window.isFullscreen())
+    //        _controller.toogleFullscreenMaxSize();
+    //    else
     {
         if (numPoints > 1)
             _toggleFocusMode();
