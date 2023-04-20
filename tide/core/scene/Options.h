@@ -172,7 +172,7 @@ private:
     bool _showFilePaths = false;
     bool _showStreamingStatistics = false;
     bool _showTestPattern = false;
-    bool _showTouchPoints = false;
+    bool _showTouchPoints = true;
     bool _showWindowBorders = false;
     bool _showWindowTitles = false;
     bool _showZoomContext = true;

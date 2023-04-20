@@ -53,13 +53,14 @@
 #include <vector>
 
 #if TIDE_ENABLE_MOVIE_SUPPORT
-extern "C" {
+extern "C"
+{
 #include <libavutil/log.h>
 }
 #endif
 
 #ifdef NDEBUG
-#define LOG_THRESHOLD LOG_INFO
+#define LOG_THRESHOLD LOG_FATAL
 #else
 #define LOG_THRESHOLD LOG_DEBUG
 #endif
@@ -74,7 +75,7 @@ std::string getTimestamp()
         .toString("hh:mm:ss dd/MM/yy")
         .toStdString();
 }
-}
+} // namespace
 
 std::string logger_id = "";
 

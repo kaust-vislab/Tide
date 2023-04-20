@@ -23,9 +23,9 @@ var overlayZorder = 1000
 
 // General
 var focusContextColor = "black"
-var focusContextOpacity = 0.7
+var focusContextOpacity = 0.5
 var focusContextPanelsOpacity = 0.5
-var focusContextFullscreenOpacity = 0.99
+var focusContextFullscreenOpacity = 0.0
 var focusTransitionTime = 500
 var panelsAnimationTime = 300
 
